@@ -6,11 +6,11 @@ namespace m2d
         {
             sf::Image sprite_sheet;
             sprite_sheet.loadFromFile(image_file_name);
-            frame_count = sprite_sheet.getSize().x / tile_size.x;
+            frame_count = sprite_sheet.getSize().x / tile_size.x;;
             for(unsigned int i = 0; i < frame_count; i++)
             {
-                sf::Texture* cur_frame;
-                cur_frame->loadFromImage(sprite_sheet, sf::Rect(int(i*tile_size.x), 0, int(tile_size.x), int(tile_size.y)));
+                sf::Texture* cur_frame = new sf::Texture();
+                cur_frame->loadFromImage(sprite_sheet, sf::IntRect(int(i*tile_size.x), 0, int(tile_size.x), int(tile_size.y)));
                 frames.push_back(cur_frame);
             }
         }
