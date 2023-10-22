@@ -8,11 +8,22 @@ namespace m2d
     {
         protected:
         public:
-            virtual void initScene();
-            virtual std::string sceneProc(int player_input); //should return
-            virtual void endScene();
+            sf::RenderWindow* window;
+            Scene(sf::RenderWindow* window);
+            virtual void initScene() = 0;
+            virtual std::string sceneProc(int player_input) = 0; //should return
+            virtual void endScene() = 0;
     };
-    class DungeonScene : Scene
+    class TitleScene : public Scene
+    {
+        protected:
+        public:
+            TitleScene(sf::RenderWindow* window);
+            void initScene();
+            std::string sceneProc(int player_input);
+            void endScene();
+    };
+    class DungeonScene : public Scene
     {
         private:
             std::vector<std::vector<int> > map_placement;
@@ -20,4 +31,5 @@ namespace m2d
         public:
     };
 }
+#include "scene.cpp"
 #endif
