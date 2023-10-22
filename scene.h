@@ -2,18 +2,15 @@
 #include "SpriteModule.h"
 #ifndef SCENE
 #define SCENE
-m2d
+namespace m2d
 {
     class Scene
     {
         protected:
-            bool toSwap;
-            string next_scene;
-            std::vector<const sf::Drawable &drawables> scene_objects; //not sure if this works
         public:
-            void initScene();
-            void sceneProc();
-            void endScene();
+            virtual void initScene();
+            virtual std::string sceneProc(int player_input); //should return
+            virtual void endScene();
     };
     class DungeonScene : Scene
     {
@@ -23,4 +20,4 @@ m2d
         public:
     };
 }
-#endif SCENE
+#endif
