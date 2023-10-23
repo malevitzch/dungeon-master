@@ -9,7 +9,7 @@ namespace m2d
     }
     void TitleScene::initScene()
     {
-        title_texture.loadFromFile("TitleScreen.png");
+        title_texture.loadFromFile("assets/TitleScreen.png");
         title.setTexture(title_texture);
         title.setPosition({0, 0});
         stage = 0;

@@ -10,9 +10,9 @@ namespace m2d
         public:
             sf::RenderWindow* window;
             Scene(sf::RenderWindow* window);
-            virtual void initScene() = 0;
-            virtual std::string sceneProc(int player_input) = 0; //should return
-            virtual void endScene() = 0;
+            virtual void initScene() = 0; //initializes scene
+            virtual std::string sceneProc(int player_input) = 0; //handles the procedure during each frame
+            virtual void endScene() = 0; //cleans up after the scene, mostly necessary in case of dynamically-allocated memory
     };
     class TitleScene : public Scene
     {
