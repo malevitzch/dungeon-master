@@ -32,7 +32,7 @@ namespace m2d
             sf::Texture& getTexture(unsigned int index); //returns the tile texture of the chosen index
             sf::Texture& getTexture(std::string name); //returns the tile texture of the chosen name
             std::string getName(unsigned int index) const; //returns the name of the tile with the chosen index
-            bool inDictionary(std::string name) const; //checks whether a name is already inside the dictionary
+            bool inDictionary(std::string name) const; //checks whether a name is inside the dictionary
             void setErrorTileIndex(unsigned int index); //sets the tile which will be returned in case of tile fetching errors, default is 0
     };
 }
