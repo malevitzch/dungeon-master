@@ -16,7 +16,10 @@ namespace m2d
     };
     class TitleScene : public Scene
     {
-        protected:
+        private:
+            int stage;
+            sf::Sprite title;
+            sf::Texture title_texture;
         public:
             TitleScene(sf::RenderWindow* window);
             void initScene();
@@ -26,9 +29,14 @@ namespace m2d
     class DungeonScene : public Scene
     {
         private:
-            std::vector<std::vector<int> > map_placement;
+            SpriteSheet* sprite_sheet;
+            std::vector<std::vector<int> > map_plan;
+            sf::Vector2u player_position;
+            sf::Vector2u map_size;
             std::vector<sf::Vector2u> slimes; //either this or we replace that part with a general approach that works for any monster
         public:
+            DungeonScene(sf::RenderWindow* window, sf::Vector2u map_size, std::vector<std::vector<int> > map_plan);
+            sf::Vector2u getPlayerPos();
     };
 }
 #include "scene.cpp"

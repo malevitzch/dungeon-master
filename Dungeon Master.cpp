@@ -8,8 +8,8 @@ int main()
 {
     std::map<std::string, m2d::Scene*> scenes;
     sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode(1000, 1000), "Dungeon Master");
-
     m2d::Scene *cur_scene = new m2d::TitleScene(window); //initialize it as starting scene
+    scenes.insert({"Title", cur_scene});
     cur_scene->initScene();
     while(window->isOpen())
     {
